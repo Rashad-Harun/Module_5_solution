@@ -1,0 +1,57 @@
+
+<!-- controller as ctrl -->
+
+<div class="container ">
+    <div ng-if="ctrl.showMessage">
+        <h3 id="myInfo" class="text-center">
+            You have not signed up yet... 
+            <a ui-sref="public.signup">
+            Sign up now !!!</a>
+          </h3>
+          <br><br>
+          <img src="images\user-info-pic.jpg" alt="user-info" class="img-rounded img-responsive">
+    </div>
+
+
+
+    <div ng-if="!ctrl.showMessage">
+        <table class="table">
+            <caption>Your Account Information</caption>
+            <tbody>
+                <tr><th scope="row">First Name:</th><td>{{ctrl.userInfo.fName}}</td></tr>
+                <tr><th scope="row">Last Name:</th><td>{{ctrl.userInfo.lName}}</td></tr>
+                <tr><th scope="row">Email:</th><td>{{ctrl.userInfo.uEmail}}</td></tr>
+                <tr><th scope="row">Phone Number:</th><td>{{ctrl.userInfo.uPhone}}</td></tr>
+                <tr><th scope="row">Favorite Dish:</th><td>{{ctrl.userInfo.uFavDish[0].name}}</td></tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-sm-8">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{ctrl.userInfo.uFavDish[0].short_name}} - {{ctrl.userInfo.uFavDish[0].name}}</h5>
+                  <p class="card-text">{{ctrl.userInfo.uFavDish[0].description}}</p>
+                  <span>{{ctrl.userInfo.uFavDish[0].price_large | currency}}</span>
+                  <span>{{ctrl.userInfo.uFavDish[0].price_small | currency}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <img class="img-responsive"
+                       width="250" 
+                       height="150" 
+                       ng-src="{{ctrl.basePath}}/images/{{ctrl.userInfo.uFavDish[0].short_name}}.jpg" 
+                       alt="{{ctrl.userInfo.uFavDish[0].name}}">
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+
+
+</div>

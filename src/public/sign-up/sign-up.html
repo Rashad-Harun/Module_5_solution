@@ -1,0 +1,110 @@
+
+<!-- controller as ctrl -->
+
+<div class="container">
+    <h2 class='text-center'>Welcome to sign up page!</h2>
+
+    <fieldset>
+        <legend>Registration-Form</legend>
+        <form name="regForm" novalidate>
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-6">
+                <label for="first name">First Name</label>
+                <input type="text"
+                 name="fName"
+                 ng-model='ctrl.user.fName' 
+                 class="form-control"  
+                 placeholder="First Name" 
+                 required>
+
+                 <div ng-if='!ctrl.reset'>
+                     <span ng-if='regForm.fName.$error.required && regForm.fName.$touched'>
+                         First Name is required ⭕
+                     </span>
+                </div>
+
+              </div>
+              <div class="form-group col-md-6">
+                <label for="last name">Last Name</label>
+                <input
+                 type="text" 
+                 name="lName" 
+                 ng-model='ctrl.user.lName' 
+                 class="form-control" 
+                 placeholder="Last Name" 
+                 required>
+
+                 <div ng-if='!ctrl.reset'>
+                    <span ng-if='regForm.lName.$error.required && regForm.lName.$touched'>
+                       Last Name is required ⭕
+                    </span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-6">
+                <label for="Email">Email</label>
+                <input
+                 type="email" 
+                 name="uEmail" 
+                 ng-model='ctrl.user.uEmail' 
+                 class="form-control" 
+                 placeholder="Email" 
+                 required>
+
+                 <div ng-if='!ctrl.reset'>
+                     <span ng-if='regForm.uEmail.$invalid && regForm.uEmail.$touched'>
+                         Please Enter a valid Email ⭕
+                     </span>
+                </div>
+            </div>
+              <div class="form-group col-md-6">
+                <label for="Phone number">Phone Number</label>
+                <input
+                 type="text" 
+                 name="uPhone" 
+                 ng-model='ctrl.user.uPhone' 
+                 class="form-control" 
+                 placeholder=" ### - ### - ####" 
+                 pattern="(\d{3})-(\d{3})-(\d{4})">
+
+                 <span ng-if='regForm.uPhone.$invalid'>
+                    Phone pattern ### - ### - ####
+                </span>
+            </div>
+            </div>
+
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-6">
+                <label for="favorite dish">favorite dish</label>
+                <input
+                 type="text" 
+                 ng-model='ctrl.favDish'
+                 maxlength="4"
+                 ng-blur="ctrl.checkFavDish(ctrl.favDish)" 
+                 class="form-control"
+                 placeholder="You favorite dish ">
+
+                <span ng-if='ctrl.message'>
+                    No such menu number exists, try again!
+                </span>
+              </div>
+            </div> 
+            <div class="col-md-12 text-center">
+                <button
+                 type="submit" 
+                 ng-click='ctrl.submit()'
+                 ng-disabled='regForm.$invalid' 
+                 class="btn btn-primary">
+                 Sign in
+                </button>
+                
+            </div>
+            <span class='successSub' ng-if='ctrl.successSub'>
+              You have successfully Signed Up
+            </span>
+        </form>    
+    </fieldset>
+</div>

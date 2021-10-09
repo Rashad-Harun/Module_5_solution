@@ -1,0 +1,53 @@
+.loading-indicator {
+    display: block;
+    width: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 40%;
+    z-index: 100;
+    background-color: #FFF;
+}
+
+.loading-indicator img {
+    width: 70px;
+    background-color: #FFF;
+}
+
+.ui-view-placeholder {
+    margin-top: 60px;
+}
+
+/* SIGN UP PAGE STYLE */
+
+legend{
+    color: white;
+}
+
+.ng-touched.ng-valid{
+    border: 2px solid greenyellow;
+}
+
+.ng-touched.ng-invalid{
+    border: 2px solid red
+}
+
+span.successSub{
+    font-size: 1.1em;
+    animation: slide 5s;
+}
+
+@keyframes slide {
+    from{opacity: 0;}
+    to {opacity: 1; color: lightgreen;}
+}
+
+#myInfo a{
+    text-decoration: none;
+    color: lightblue;
+}
+
+#myInfo a:hover{
+    color: lightgreen;
+}
